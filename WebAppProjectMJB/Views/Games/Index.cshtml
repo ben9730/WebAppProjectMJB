@@ -4,62 +4,49 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h3>Ps4 Game List</h3>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Summary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CoverImage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Trailer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Console)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Summary)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CoverImage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Trailer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Console.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+@*the search tab in the page, name is for the funtion in the gameControler
+    asp-action is the name of the func in the controler*@
+
+<div class="container">
+    <form asp-action="SearchPs" class="col-sm-3 form-group">
+        <input class="form-control" name="query" type="search" placeholder="type game to search">
+        <br />
+        <input type="submit" class="btn btn-primary" value="Search" />
+    </form>
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var game in Model) //the main loop for put more items
+        {
+            @if (game.Console.Name == "Ps4")
+            {
+                <div class="col-sm-3">
+
+                    <div class="card" style="width: 18rem;">
+                        <img src="@game.CoverImage" class="card-img-top" alt="no">
+                        <div class="card-body">
+                            <h5 class="card-title"> @game.Name</h5>
+                            <p class="card-text">Console: @game.Console.Name</p>
+                            <p class="card-text"> Price:  @game.Price₪</p>
+                            <a asp-action="Details" asp-route-id="@game.Id" class="btn btn-primary">Go to Game page</a>
+                            <div>
+                                <a asp-action="Edit" asp-route-id="@game.Id">Edit</a> |
+                                <a asp-action="Delete" asp-route-id="@game.Id">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            }
+        }
+
+    </div>
+</div>

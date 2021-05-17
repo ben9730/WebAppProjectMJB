@@ -26,6 +26,50 @@ namespace WebAppProjectMJB.Controllers
             return View(await webAppProjectMJBContext.ToListAsync());
         }
 
+        //דרך ליצור מנוע חיפוש בעמוד שלנו, מה שהפונצקיה מקבלת זה שם המחרוזת והוא זהה גם בוויו שלנו
+        //השימוש ב"" עם אינדקס זה להגיד לו באיזה עמוד לחפש תפונקציה
+        //the Where func do the filtering by game name in this case
+        public async Task<IActionResult> SearchPs(string query)
+        {
+            //LinQ sentex its like SQL this is the same as what write down
+            //var qu = from g in _context.GamesV2.Include(g => g.Category)
+            //         where(g.Name.Contains(query))
+            //         select g;
+
+            var webAppProjectMJBContext = _context.Game.Include(g => g.Console).Where(g => g.Name.Contains(query));
+            return View("Index", await webAppProjectMJBContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> SearchXbox(string query)
+        {
+            var webAppProjectMJBContext = _context.Game.Include(g => g.Console).Where(g => g.Name.Contains(query));
+            return View("XboxOne", await webAppProjectMJBContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> SearchNintendo(string query)
+        {
+            var webAppProjectMJBContext = _context.Game.Include(g => g.Console).Where(g => g.Name.Contains(query));
+            return View("NintendoSwitch", await webAppProjectMJBContext.ToListAsync());
+        }
+
+
+        //do this if want to add more console game page to the web
+        public async Task<IActionResult> NintendoSwitch()
+        {
+            var webAppProjectMJBContext = _context.Game.Include(g => g.Console);
+            return View(await webAppProjectMJBContext.ToListAsync());
+
+        }
+
+        public async Task<IActionResult> XboxOne()
+        {
+            var webAppProjectMJBContext = _context.Game.Include(g => g.Console);
+            return View(await webAppProjectMJBContext.ToListAsync());
+        }
+
+
+
+
         // GET: Games/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -65,7 +109,7 @@ namespace WebAppProjectMJB.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GameConsoleId"] = new SelectList(_context.Set<GameConsole>(), "Id", "Id", game.GameConsoleId);
+            ViewData["GameConsoleId"] = new SelectList(_context.Set<GameConsole>(), nameof(game.GameConsoleId), nameof(game.Console), game.GameConsoleId);
             return View(game);
         }
 
@@ -82,7 +126,7 @@ namespace WebAppProjectMJB.Controllers
             {
                 return NotFound();
             }
-            ViewData["GameConsoleId"] = new SelectList(_context.Set<GameConsole>(), "Id", "Id", game.GameConsoleId);
+            ViewData["GameConsoleId"] = new SelectList(_context.Set<GameConsole>(), "Id", "Name", game.GameConsoleId);
             return View(game);
         }
 

@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebAppProjectMJB.Data;
-
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace WebAppProjectMJB
 {
@@ -31,7 +31,13 @@ namespace WebAppProjectMJB
             services.AddDbContext<WebAppProjectMJBContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("WebAppProjectMJBContext")));
 
-            
+            //need this to use Cookies option 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie
+                (options =>
+                {
+                    options.LoginPath = "/Users/Login";
+                    options.AccessDeniedPath = "/Users/AccessDenied";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +57,9 @@ namespace WebAppProjectMJB
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            //to use the Cookie option
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
