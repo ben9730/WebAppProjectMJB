@@ -36,9 +36,40 @@
                         <li class="nav-item">
                             <a class="btn btn-danger" asp-area="" asp-controller="Games" asp-action="NintendoSwitch">Nintendo Switch</a>
                         </li>
+                        @if(Context.User.IsInRole("Admin"))
+                        { 
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="GameConsoles" asp-action="Index">ConsolesEdit</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-danger" asp-area="" asp-controller="Users" asp-action="Index">Users list</a>
+                            </li>
+                        }
+                        @*this if is to make logout and login button visabel if the user login to the web or not*@
+                        @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
+                        {
+                            <li class="nav-item">
+                                <a class="btn btn-info" asp-area="" asp-controller="Users" asp-action="Logout">Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+
+                            <li class="nav-item">
+                                Not register?  <a class="btn btn-danger" asp-area="" asp-controller="Users" asp-action="Register">Register Now</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-info" asp-area="" asp-controller="Users" asp-action="Login">Login!</a>
+                            </li>
+                        }
+
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="GameConsoles" asp-action="Index">ConsolesEdit</a>
+                            <form class="d-flex">
+                                <a class="nav-link text-primary"> Hello @Context.User.Identity.Name</a>
+                            </form>
                         </li>
+
 
                     </ul>
                 </div>

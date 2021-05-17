@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -89,6 +90,7 @@ namespace WebAppProjectMJB.Controllers
             return View(game);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Games/Create
         public IActionResult Create()
         {
@@ -113,6 +115,7 @@ namespace WebAppProjectMJB.Controllers
             return View(game);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Games/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -166,6 +169,7 @@ namespace WebAppProjectMJB.Controllers
             return View(game);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Games/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
