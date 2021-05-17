@@ -48,7 +48,7 @@ namespace WebAppProjectMJB.Controllers
         // GET: Games/Create
         public IActionResult Create()
         {
-            ViewData["GameConsoleId"] = new SelectList(_context.Set<GameConsole>(), "Id", "Id");
+            ViewData["GameConsoleId"] = new SelectList(_context.Set<GameConsole>(), nameof(GameConsole.Id), nameof(GameConsole.Name));
             return View();
         }
 
