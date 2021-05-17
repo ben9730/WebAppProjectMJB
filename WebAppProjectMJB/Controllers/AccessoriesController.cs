@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -45,10 +46,11 @@ namespace WebAppProjectMJB.Controllers
             return View(accessories);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Accessories/Create
         public IActionResult Create()
         {
-            ViewData["GameConsoleId"] = new SelectList(_context.GameConsole, "Id", "Id");
+            ViewData["GameConsoleId"] = new SelectList(_context.GameConsole, nameof(GameConsole.Id), nameof(GameConsole.Name));
             return View();
         }
 
@@ -69,6 +71,7 @@ namespace WebAppProjectMJB.Controllers
             return View(accessories);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Accessories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -122,6 +125,7 @@ namespace WebAppProjectMJB.Controllers
             return View(accessories);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Accessories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
