@@ -34,9 +34,9 @@ namespace WebAppProjectMJB.Models
         [Display(Name = "Console")]
         // public int CategoryId { get; set; }
         //public Category Category { get; set; }
-        public int ConsoleId { get; set; }
+        public int GameConsoleId { get; set; }
 
-        public Console Console { get; set; }
+        public GameConsole Console { get; set; }
 
         public List<User> Users { get; set; }
     }

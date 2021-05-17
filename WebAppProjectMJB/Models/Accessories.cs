@@ -27,8 +27,8 @@ namespace WebAppProjectMJB.Models
         public string Image { get; set; }
 
         [Display(Name = "Console Name")]
-        public int ConsoleId { get; set; }
-        public Console Console { get; set; }
+        public int GameConsoleId { get; set; }
+        public GameConsole Console { get; set; }
 
     }
 }

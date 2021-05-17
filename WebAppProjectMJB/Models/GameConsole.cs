@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebAppProjectMJB.Models
 {
-    public class Console
+    public class GameConsole
     {
         public int Id { get; set; }
 
