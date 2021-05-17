@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebAppProjectMJB.Data;
 
+
 namespace WebAppProjectMJB
 {
     public class Startup
@@ -29,6 +30,8 @@ namespace WebAppProjectMJB
 
             services.AddDbContext<WebAppProjectMJBContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("WebAppProjectMJBContext")));
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

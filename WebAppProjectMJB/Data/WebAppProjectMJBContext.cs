@@ -16,6 +16,10 @@ namespace WebAppProjectMJB.Data
 
         public DbSet<WebAppProjectMJB.Models.Game> Game { get; set; }
 
-        public DbSet<WebAppProjectMJB.Models.Console> Console { get; set; }
+        public DbSet<WebAppProjectMJB.Models.GameConsole> GameConsole { get; set; }
+
+        public DbSet<WebAppProjectMJB.Models.Accessories> Accessories { get; set; }
+
+        public DbSet<WebAppProjectMJB.Models.User> User { get; set; }
     }
 }
