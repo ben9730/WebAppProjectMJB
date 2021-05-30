@@ -85,7 +85,19 @@ namespace WebAppProjectMJB.Controllers
                 else
                 {
                     //viewdata is like var you can difine and use in the view
-                    ViewData["Error"] = "cannot crate this user, problem with username or/and Email";
+                    if(notValidUser.Username == user.Username && notValidUser.Email == user.Email)
+                    {
+                        ViewData["Error"] = "Cannot create this user, this username and Email is already exists in the system";
+                    }
+                    else if(notValidUser.Email == user.Email)
+                    {
+                        ViewData["Error"] = "Cannot create this user, this Email is already exists in the system";
+                    }
+                    else if(notValidUser.Username == user.Username)
+                    {
+                        ViewData["Error"] = "Cannot create this user, this username is already exists in the system";
+                    }
+                    //ViewData["Error"] = "cannot crate this user, problem with username or/and Email";
                 }
             }
             return View(user);
@@ -126,7 +138,7 @@ namespace WebAppProjectMJB.Controllers
                 else
                 {
                     //viewdata is like var you can difine and use in the view
-                    ViewData["Error"] = "Username or/and Password wrong";
+                    ViewData["Error"] = "Username or Password are wrong";
                 }
             }
             return View(user);
