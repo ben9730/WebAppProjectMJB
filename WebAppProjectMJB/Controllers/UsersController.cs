@@ -198,6 +198,7 @@ namespace WebAppProjectMJB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Username,Password,Email,FullName,Address,Type")] User user)
         {
+            
             if (id != user.Id)
             {
                 return NotFound();

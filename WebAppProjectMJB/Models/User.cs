@@ -41,7 +41,7 @@ namespace WebAppProjectMJB.Models
         //defulte type for the user
         public UserType Type { get; set; } = UserType.Client;
 
-        //try many to many
+        //try many to many, maybe delete this? and add order instad 
         public List<Game> Games { get; set; }
 
     }
