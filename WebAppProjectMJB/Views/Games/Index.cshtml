@@ -36,10 +36,14 @@
                             <p class="card-text">Console: @game.Console.Name</p>
                             <p class="card-text"> Price:  @game.Price₪</p>
                             <a asp-action="Details" asp-route-id="@game.Id" class="btn btn-primary">Go to Game page</a>
+                            @if (Context.User.IsInRole("Admin"))
+                             {
                             <div>
                                 <a asp-action="Edit" asp-route-id="@game.Id">Edit</a> |
                                 <a asp-action="Delete" asp-route-id="@game.Id">Delete</a>
                             </div>
+                            }
+
                         </div>
                     </div>
 
