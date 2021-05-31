@@ -4,14 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h3>Ps4 Game List</h3>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
-@*the search tab in the page, name is for the funtion in the gameControler
-    asp-action is the name of the func in the controler*@
+<h4>Games Search</h4>
 
 <div class="container">
     <form asp-action="Search" id="searchTry" class="col-sm-3 form-group">
@@ -22,13 +16,11 @@
 </div>
 
 
-
-
 <div class="container">
     <div class="row">
         @foreach (var game in Model) //the main loop for put more items
         {
-            @if (game.Console.Name == "Ps4")
+            
             {
                 <div class="col-sm-3">
 
@@ -40,11 +32,11 @@
                             <p class="card-text"> Price:  @game.Price₪</p>
                             <a asp-action="Details" asp-route-id="@game.Id" class="btn btn-primary">Go to Game page</a>
                             @if (Context.User.IsInRole("Admin"))
-                            {
-                                <div>
-                                    <a asp-action="Edit" asp-route-id="@game.Id">Edit</a> |
-                                    <a asp-action="Delete" asp-route-id="@game.Id">Delete</a>
-                                </div>
+                             {
+                            <div>
+                                <a asp-action="Edit" asp-route-id="@game.Id">Edit</a> |
+                                <a asp-action="Delete" asp-route-id="@game.Id">Delete</a>
+                            </div>
                             }
 
                         </div>
@@ -58,7 +50,7 @@
     </div>
 </div>
 
-@section Scripts{
+@section Scripts{ 
     <script src="~/js/Search.js" asp-append-version="true"></script>
-
+    
 }

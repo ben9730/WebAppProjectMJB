@@ -41,17 +41,14 @@ namespace WebAppProjectMJB.Controllers
             return View("Index", await webAppProjectMJBContext.ToListAsync());
         }
 
-        public async Task<IActionResult> SearchXbox(string query)
+        //main search function
+        public async Task<IActionResult> Search(string query)
         {
+            
             var webAppProjectMJBContext = _context.Game.Include(g => g.Console).Where(g => g.Name.Contains(query));
-            return View("XboxOne", await webAppProjectMJBContext.ToListAsync());
+            return View( await webAppProjectMJBContext.ToListAsync());
         }
 
-        public async Task<IActionResult> SearchNintendo(string query)
-        {
-            var webAppProjectMJBContext = _context.Game.Include(g => g.Console).Where(g => g.Name.Contains(query));
-            return View("NintendoSwitch", await webAppProjectMJBContext.ToListAsync());
-        }
 
 
         //do this if want to add more console game page to the web
