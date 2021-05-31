@@ -24,7 +24,15 @@ namespace WebAppProjectMJB.Controllers
         // GET: GameConsoles
         public async Task<IActionResult> Index()
         {
+           
             return View(await _context.GameConsole.ToListAsync());
+        }
+
+        //console search
+        public async Task<IActionResult> Search(string query)
+        {
+            var searchContex = _context.GameConsole.Where(co => co.Name.Contains(query));
+            return Json(await searchContex.ToListAsync());
         }
 
         // GET: GameConsoles/Details/5
