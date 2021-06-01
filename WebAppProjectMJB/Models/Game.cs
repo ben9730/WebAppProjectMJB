@@ -38,7 +38,7 @@ namespace WebAppProjectMJB.Models
 
         public GameConsole Console { get; set; }
 
-        public List<User> Users { get; set; }
+        
     }
 
 }

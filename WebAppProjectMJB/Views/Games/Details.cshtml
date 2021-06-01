@@ -7,6 +7,14 @@
 <h1>Details</h1>
 
 <div>
+    @if (Context.User.IsInRole("Admin"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        <a asp-action="Index">Back to List</a>
+    }
+</div>
+
+<div>
     <h4>@Model.Name</h4>
     <hr />
     <dl class="row">
@@ -49,7 +57,4 @@
 
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
