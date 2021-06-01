@@ -27,6 +27,15 @@ namespace WebAppProjectMJB.Controllers
             return View(await webAppProjectMJBContext.ToListAsync());
         }
 
+
+        public async Task<IActionResult> Search(string query)
+        {
+
+            var webAppProjectMJBContext = _context.Accessories.Include(g => g.Console).Where(g => g.Name.Contains(query) || g.Console.Name.Contains(query) || g.Price.ToString().Contains(query));
+            return PartialView(await webAppProjectMJBContext.ToListAsync());
+        }
+
+
         // GET: Accessories/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -85,7 +94,7 @@ namespace WebAppProjectMJB.Controllers
             {
                 return NotFound();
             }
-            ViewData["GameConsoleId"] = new SelectList(_context.GameConsole, "Id", "Id", accessories.GameConsoleId);
+            ViewData["GameConsoleId"] = new SelectList(_context.GameConsole, "Id", "Name", accessories.GameConsoleId);
             return View(accessories);
         }
 

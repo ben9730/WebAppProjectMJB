@@ -6,9 +6,12 @@
 
 <h3>Xbox One Game List</h3>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (Context.User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
 
 <div class="container">
     <form asp-action="Search" id="searchInput" class="col-sm-3 form-group">

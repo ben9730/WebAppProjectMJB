@@ -6,12 +6,14 @@
 
 <h3>Ps4 Game List</h3>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
-@*the search tab in the page, name is for the funtion in the gameControler
-    asp-action is the name of the func in the controler*@
+@if (Context.User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+    @*the search tab in the page, name is for the funtion in the gameControler
+        asp-action is the name of the func in the controler*@
 
 <div class="container">
     <form asp-action="Search" id="searchInput" class="col-sm-3 form-group">
@@ -57,7 +59,7 @@
 
             }
         }
-        
+
     </div>
 </div>
 

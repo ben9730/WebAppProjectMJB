@@ -91,3 +91,21 @@ $(function () {
             });
     });
 });
+
+$(function () {
+    $("#UserinputAcss").keyup(function (e) {
+        var searchInput = $("#UserinputAcss").val();
+
+        $.ajax({
+            url: "/Accessories/Search", //in what controller to search
+            data: { query: searchInput } // the name from the html (query) and the data we want 
+
+        }).done(function (data) {
+
+            //this work
+            $("#tabAcss").html(data); // tbody is the tag we want to fill from the data
+            console.log(data);
+
+        });
+    });
+});
