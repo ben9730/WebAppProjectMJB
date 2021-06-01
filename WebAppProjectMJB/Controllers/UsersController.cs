@@ -174,7 +174,7 @@ namespace WebAppProjectMJB.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
