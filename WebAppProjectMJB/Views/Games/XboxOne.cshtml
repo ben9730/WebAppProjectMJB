@@ -11,42 +11,48 @@
 </p>
 
 <div class="container">
-    <form asp-action="Search" class="col-sm-3 form-group">
-        <input class="form-control" name="query" type="search" placeholder="type game to search">
+    <form asp-action="Search" id="searchInput" class="col-sm-3 form-group">
+        <input class="form-control" id="Userinput" name="query" type="search" placeholder="type any key to search">
         <br />
-        <input type="submit" class="btn btn-primary" value="Search" />
+        @*<input type="submit" class="btn btn-primary" value="Search" />*@
     </form>
 </div>
 
 <div class="container">
-    <div class="row">
+    <div class="row" id="tab">
         @foreach (var game in Model) //the main loop for put more items
         {
             @if (game.Console.Name == "Xbox One")
             {
-            <div class="col-sm-3">
+                <div class="col-sm-3">
 
-                <div class="card" style="width: 18rem;">
-                    <img src="@game.CoverImage" class="card-img-top" alt="no">
-                    <div class="card-body">
-                        <h5 class="card-title"> @game.Name</h5>
-                        <p class="card-text">Console: @game.Console.Name</p>
-                        <p class="card-text"> Price:  @game.Price₪</p>
-                        <a asp-action="Details" asp-route-id="@game.Id" class="btn btn-primary">Go to Game page</a>
-                        @if (Context.User.IsInRole("Admin"))
-                        {
-                            <div>
-                                <a asp-action="Edit" asp-route-id="@game.Id">Edit</a> |
-                                <a asp-action="Delete" asp-route-id="@game.Id">Delete</a>
-                            </div>
-                        }
+                    <div class="card" style="width: 18rem;">
+                        <img src="@game.CoverImage" class="card-img-top" alt="no">
+                        <div class="card-body">
+                            <h5 class="card-title"> @game.Name</h5>
+                            <p class="card-text">Console: @game.Console.Name</p>
+                            <p class="card-text"> Price:  @game.Price₪</p>
+                            <a asp-action="Details" asp-route-id="@game.Id" class="btn btn-primary">Go to Game page</a>
+                            @if (Context.User.IsInRole("Admin"))
+                            {
+                                <div>
+                                    <a asp-action="Edit" asp-route-id="@game.Id">Edit</a> |
+                                    <a asp-action="Delete" asp-route-id="@game.Id">Delete</a>
+                                </div>
+                            }
+                        </div>
                     </div>
-                </div>
-                
 
-            </div>
-                }
+
+                </div>
             }
+        }
 
     </div>
 </div>
+
+
+@section Scripts{
+    <script src="~/js/Search.js" asp-append-version="true"></script>
+
+}

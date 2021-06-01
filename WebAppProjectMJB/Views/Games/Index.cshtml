@@ -14,10 +14,10 @@
     asp-action is the name of the func in the controler*@
 
 <div class="container">
-    <form asp-action="Search" id="searchTry" class="col-sm-3 form-group">
-        <input class="form-control" id="inp" name="query" type="search" placeholder="type game to search">
+    <form asp-action="Search" id="searchInput" class="col-sm-3 form-group">
+        <input class="form-control" id="Userinput" name="query" type="search" placeholder="type any key to search">
         <br />
-        <input type="submit" class="btn btn-primary" value="Search" />
+        @*<input type="submit" class="btn btn-primary" value="Search" />*@
     </form>
 </div>
 
@@ -25,12 +25,14 @@
 
 
 <div class="container">
-    <div class="row">
+    <div class="row" id="tab">
         @foreach (var game in Model) //the main loop for put more items
         {
             @if (game.Console.Name == "Ps4")
             {
+
                 <div class="col-sm-3">
+
 
                     <div class="card" style="width: 18rem;">
                         <img src="@game.CoverImage" class="card-img-top" alt="no">
@@ -52,11 +54,15 @@
 
 
                 </div>
+
             }
         }
-
+        
     </div>
 </div>
+
+
+
 
 @section Scripts{
     <script src="~/js/Search.js" asp-append-version="true"></script>

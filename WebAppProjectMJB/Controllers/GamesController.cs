@@ -42,11 +42,18 @@ namespace WebAppProjectMJB.Controllers
         }
 
         //main search function
+        //public async Task<IActionResult> Search(string query)
+        //{
+            
+        //    var webAppProjectMJBContext = _context.Game.Include(g => g.Console).Where(g => g.Name.Contains(query));
+        //    return View( await webAppProjectMJBContext.ToListAsync());
+        //}
+
         public async Task<IActionResult> Search(string query)
         {
-            
-            var webAppProjectMJBContext = _context.Game.Include(g => g.Console).Where(g => g.Name.Contains(query));
-            return View( await webAppProjectMJBContext.ToListAsync());
+
+            var webAppProjectMJBContext = _context.Game.Include(g => g.Console).Where(g => g.Name.Contains(query) || g.Console.Name.Contains(query));
+            return PartialView(await webAppProjectMJBContext.ToListAsync());
         }
 
 

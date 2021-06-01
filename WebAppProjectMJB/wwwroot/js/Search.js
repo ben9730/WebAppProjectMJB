@@ -73,3 +73,21 @@ $(function () {
         });
     });
 });
+
+$(function () {
+    $("#Userinput").keyup(function (e) {
+        var searchInput = $("#Userinput").val();
+
+        $.ajax({
+            url: "/Games/Search", //in what controller to search
+            data: { query: searchInput } // the name from the html (query) and the data we want 
+
+        }).done(function (data) {
+
+            //this work
+            $("#tab").html(data); // tbody is the tag we want to fill from the data
+            console.log(data);
+
+            });
+    });
+});
