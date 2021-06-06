@@ -4,7 +4,11 @@
     ViewData["Title"] = "XboxOne";
 }
 
-<h3>Xbox One Game List</h3>
+<h3 style="font-size:30px; color:white";>Xbox One Game List </h3>
+<body style="background: url(https://i.ytimg.com/vi/oFcDfznnvSM/maxresdefault.jpg) no-repeat center center fixed;
+        background-size: 100% 100%;">
+    
+</body>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -24,26 +28,26 @@
         {
             @if (game.Console.Name == "Xbox One")
             {
-            <div class="col-sm-3">
+                <div class="col-sm-3">
 
-                <div class="card" style="width: 18rem;">
-                    <img src="@game.CoverImage" class="card-img-top" alt="no">
-                    <div class="card-body">
-                        <h5 class="card-title"> @game.Name</h5>
-                        <p class="card-text">Console: @game.Console.Name</p>
-                        <p class="card-text"> Price:  @game.Price₪</p>
-                        <a asp-action="Details" asp-route-id="@game.Id" class="btn btn-primary">Go to Game page</a>
-                        <div>
-                            <a asp-action="Edit" asp-route-id="@game.Id">Edit</a> |
-                            <a asp-action="Delete" asp-route-id="@game.Id">Delete</a>
+                    <div class="card" style="width: 18rem;">
+                        <img src="@game.CoverImage" class="card-img-top" alt="no">
+                        <div class="card-body">
+                            <h5 class="card-title"> @game.Name</h5>
+                            <p class="card-text">Console: @game.Console.Name</p>
+                            <p class="card-text"> Price:  @game.Price₪</p>
+                            <a asp-action="Details" asp-route-id="@game.Id" class="btn btn-primary">Go to Game page</a>
+                            <div>
+                                <a asp-action="Edit" asp-route-id="@game.Id">Edit</a> |
+                                <a asp-action="Delete" asp-route-id="@game.Id">Delete</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
 
-            </div>
-                }
+
+                </div>
             }
+        }
 
     </div>
 </div>
