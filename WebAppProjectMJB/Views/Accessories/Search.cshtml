@@ -4,25 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Aceessories</h1>
 
-@if (Context.User.IsInRole("Admin"))
-{
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-}
 
 <div class="container">
-    <form asp-action="Search" id="searchInputAcss" class="col-sm-3 form-group">
-        <input class="form-control" id="UserinputAcss" name="query" type="search" placeholder="type any key to search">
-        <br />
-        @*<input type="submit" class="btn btn-primary" value="Search" />*@
-    </form>
-</div>
-
-<div class="container">
-    <div class="row" id="tabAcss">
+    <div class="row" id="tab">
         @foreach (var item in Model) //the main loop for put more items
         {
 
@@ -60,4 +45,3 @@
     <script src="~/js/Search.js" asp-append-version="true"></script>
 
 }
-

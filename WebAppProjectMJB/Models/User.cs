@@ -41,8 +41,7 @@ namespace WebAppProjectMJB.Models
         //defulte type for the user
         public UserType Type { get; set; } = UserType.Client;
 
-        //try many to many
-        public List<Game> Games { get; set; }
+        
 
     }
 }

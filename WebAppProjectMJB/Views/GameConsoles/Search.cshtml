@@ -1,32 +1,21 @@
 ﻿@model IEnumerable<WebAppProjectMJB.Models.GameConsole>
 
-@{
-    ViewData["Title"] = "Index";
-}
 
-<h1>Index</h1>
 
-<div class="container">
+
+@*<div class="container">
     <form asp-action="Search" id="searchTry" class="col-sm-3 form-group">
         <input class="form-control" id="in" name="query" type="search" placeholder="type here">
         <br />
-        @*<input type="submit" class="btn btn-primary" value="Search" />*@
+        <input type="submit" class="btn btn-primary" value="Search" />
     </form>
-</div>
+</div>*@
 
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+   
+
     <tbody>
         @foreach (var item in Model)
         {
@@ -45,17 +34,7 @@
 </table>
 
 
- @*for teamplate*@
-<script type="text/html" id="searchTemp">
-    <tr>
-        <td>
-           {name}
-        </td>
-        <td>
-            
-        </td>
-    </tr>
-</script>
+
 
 @section Scripts{
     <script src="~/js/Search.js" asp-append-version="true"></script>

@@ -13,7 +13,7 @@ namespace WebAppProjectMJB.Models
 
         public List<Game> Games { get; set; }
 
-        public Accessories Accessories { get; set; }
+        public List<Accessories> Accessories { get; set; }
 
     }
 }
