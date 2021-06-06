@@ -27,6 +27,13 @@ namespace WebAppProjectMJB.Controllers
             return View(await webAppProjectMJBContext.ToListAsync());
         }
 
+        //Main Search Page
+        public async Task<IActionResult> GameSearch()
+        {
+            var webAppProjectMJBContext = _context.Game.Include(g => g.Console);
+            return View(await webAppProjectMJBContext.ToListAsync());
+        }
+
         //דרך ליצור מנוע חיפוש בעמוד שלנו, מה שהפונצקיה מקבלת זה שם המחרוזת והוא זהה גם בוויו שלנו
         //השימוש ב"" עם אינדקס זה להגיד לו באיזה עמוד לחפש תפונקציה
         //the Where func do the filtering by game name in this case
@@ -37,8 +44,9 @@ namespace WebAppProjectMJB.Controllers
             //         where(g.Name.Contains(query))
             //         select g;
 
-            var webAppProjectMJBContext = _context.Game.Include(g => g.Console).Where(g => g.Name.Contains(query));
-            return View("Index", await webAppProjectMJBContext.ToListAsync());
+            var webAppProjectMJBContext = _context.Game.Include(g => g.Console).Where(g => g.Name.Contains(query) || g.Console.Name.Contains(query) || g.Price.ToString().Contains(query));
+            //return PartialView("Index", await webAppProjectMJBContext.ToListAsync());
+            return PartialView("Index",await webAppProjectMJBContext.ToListAsync());
         }
 
         //main search function
