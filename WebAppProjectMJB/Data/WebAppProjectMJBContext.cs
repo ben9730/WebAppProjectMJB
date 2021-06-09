@@ -21,5 +21,7 @@ namespace WebAppProjectMJB.Data
         public DbSet<WebAppProjectMJB.Models.Accessories> Accessories { get; set; }
 
         public DbSet<WebAppProjectMJB.Models.User> User { get; set; }
+
+        public DbSet<WebAppProjectMJB.Models.FeedbackMessage> FeedbackMessage { get; set; }
     }
 }

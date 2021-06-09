@@ -1,0 +1,74 @@
+﻿@model WebAppProjectMJB.Models.FeedbackMessage
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Connect Us</h1>
+
+
+
+<div class="form-control-sm">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="ConnectUs">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Name</label>
+                    <input asp-for="Name" type="text" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label">Email</label>
+                    <input asp-for="Email" type="email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label">Phone Number</label>
+                    <input asp-for="PhoneNumber" type="tel" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Message" class="control-label">Description</label>
+                    <textarea asp-for="Message" type="text" class="form-control"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Sumbit" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    @if (Context.User.IsInRole("Admin"))
+    {
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    }
+
+</div>
+
+    <div class="text-md-right text-capitalize">
+        <div>
+            <h3>Talk to us </h3>
+            <p>Branch: Rishon LeZion Colman</p>
+            <p>Phone Number: 0500101019</p>
+            <p>Aderass: The college of management academic studies Rishon LeZion </p>
+            <p>Open Time: Sunday - Thursday 9:00 AM - 21:00 PM</p>
+            <p>Email: colman@we.the.best.com</p>
+        </div>
+    </div>
+
+
+
+   
+
+
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
