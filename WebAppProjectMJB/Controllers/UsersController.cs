@@ -30,6 +30,15 @@ namespace WebAppProjectMJB.Controllers
             return View(await _context.User.ToListAsync());
         }
 
+
+        public async Task<IActionResult> Search(string query)
+        {
+
+            var webAppProjectMJBContext = _context.User.Where(g => g.Username.Contains(query) || g.Email.Contains(query) || g.Address.Contains(query) || g.FullName.Contains(query));
+            return PartialView(await webAppProjectMJBContext.ToListAsync());
+        }
+
+
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {

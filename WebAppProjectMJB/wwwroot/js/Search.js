@@ -110,3 +110,21 @@ $(function () {
     });
 });
 
+$(function () {
+    $("#UserToSearch").keyup(function (e) {
+        var searchInput = $("#UserToSearch").val();
+
+        $.ajax({
+            url: "/Users/Search", //in what controller to search
+            data: { query: searchInput } // the name from the html (query) and the data we want (searchInput)
+
+        }).done(function (data) {
+
+            //this work
+            $("#userSearch").html(data); // the tag we want to fill from the data
+            console.log(data);
+
+        });
+    });
+});
+

@@ -1,22 +1,10 @@
 ﻿@model IEnumerable<WebAppProjectMJB.Models.User>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h1>Index</h1>
-
-<div class="container">
-    <form asp-action="Search" class="col-sm-3 form-group">
-        <input class="form-control" id="UserToSearch" name="query" type="search" placeholder="type here">
-    </form>
-</div>
 
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table" id="userSearch" >
+
+
+<table class="table" >
     <thead>
         <tr>
             <th>
@@ -40,7 +28,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody >
+    <tbody>
         @foreach (var item in Model)
         {
             <tr>
@@ -71,6 +59,7 @@
         }
     </tbody>
 </table>
+
 
 @section Scripts{
     <script src="~/js/Search.js" asp-append-version="true"></script>
