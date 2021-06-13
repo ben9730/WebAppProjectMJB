@@ -10,44 +10,44 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Register">
+        <form asp-action="Register" id=registration_form>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
-                <span asp-validation-for="Username" class="text-danger"></span>
+                <input asp-for="Username" id="form_username" class="form-control" />
+                <span asp-validation-for="Username" id="username_error_message" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <input asp-for="Password" id="form_password" class="form-control" />
+                <span asp-validation-for="Password" id="password_error_message" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" required />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <input asp-for="Email" id="form_email" class="form-control" required />
+                <span asp-validation-for="Email" id="email_error_message" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FullName" class="control-label"></label>
-                <input asp-for="FullName" class="form-control" required  />
-                <span asp-validation-for="FullName" class="text-danger"></span>
+                <input asp-for="FullName" id="form_name" class="form-control" required />
+                <span asp-validation-for="FullName" id="name_error_message" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
-           
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
-        @if(ViewBag.Error != null)
-            {
+        @if (ViewBag.Error != null)
+        {
             //viewbag is the way to acsses the var we define in viewData
             //if its not null then we get error in the controler
-             <div class="text-danger">@ViewBag.Error</div>
-            }
+            <div class="text-danger">@ViewBag.Error</div>
+        }
     </div>
 </div>
 
@@ -57,4 +57,11 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/RegistrationValidation.js" asp-append-version="true"></script>
+    
 }
+
+
+@*@section Scripts{
+    <script src="~/js/RegistrationValidation.js" asp-append-version="true"></script>
+}*@

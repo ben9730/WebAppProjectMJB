@@ -63,7 +63,8 @@ namespace WebAppProjectMJB.Controllers
             {
                 _context.Add(feedbackMessage);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index),"Home");
+                //return the user to index page in home controller 
             }
             return View(feedbackMessage);
         }
