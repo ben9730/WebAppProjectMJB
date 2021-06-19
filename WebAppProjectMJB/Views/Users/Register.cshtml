@@ -23,6 +23,11 @@
                 <span asp-validation-for="Password" id="password_error_message" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label class="control-label">Confirm Password</label>
+                <input type="password" id="form_retype_password" class="form-control" />
+                <span id="retype_password_error_message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
                 <input asp-for="Email" id="form_email" class="form-control" required />
                 <span asp-validation-for="Email" id="email_error_message" class="text-danger"></span>
