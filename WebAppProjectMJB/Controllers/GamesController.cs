@@ -102,6 +102,25 @@ namespace WebAppProjectMJB.Controllers
             return View(game);
         }
 
+        public async Task<IActionResult> Cart(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var game = await _context.Game
+                .Include(g => g.Console)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (game == null)
+            {
+                return NotFound();
+            }
+
+            return View(game);
+        }
+
+
         [Authorize(Roles = "Admin")]
         // GET: Games/Create
         public IActionResult Create()
