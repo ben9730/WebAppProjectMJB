@@ -141,22 +141,23 @@
                 </div>
             </nav>
         </header>
+
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()
             </main>
         </div>
 
-        <footer class="border-top footer text-muted footer-txt">
+        <div class="position-absolute">
+           
+            <footer class="border-top footer text-muted footer-txt" style="top: 50px">
+                <div class="foot-txt">
+            &copy; 2021 - WebAppProjectMJB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 
+        </div>
+            </footer>
+        </div>
 
-            <!--<div class="foot-txt">
-        &copy; 2021 - WebAppProjectMJB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-
-    </div>-->
-
-
-        </footer>
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
