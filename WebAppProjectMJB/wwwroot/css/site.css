@@ -26,7 +26,7 @@ a {
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
+/*html {
   font-size: 14px;
 }
 @media (min-width: 768px) {
@@ -35,7 +35,13 @@ html {
   }
 }
 
+*/
 
+#Header {
+ font-size:500px;
+}
+
+}
 .border-top {
     border-top: 1px solid #e5e5e5;
 }
