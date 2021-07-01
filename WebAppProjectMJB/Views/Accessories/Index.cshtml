@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Aceessories</h1>
+<h3 style="font-size:30px; color:white" ;>Aceessories List</h3>
 
 @if (Context.User.IsInRole("Admin"))
 {
@@ -12,6 +12,10 @@
         <a asp-action="Create">Create New</a>
     </p>
 }
+
+<body style="        background: url(https://img.mensxp.com/media/content/2020/Feb/Best-Deals-On-Consoles--Accessories-1400x653_5e4f893661fcc.jpeg) no-repeat center center fixed;
+        background-size: 100% 100%;">
+</body>
 
 <div class="container">
     <form asp-action="Search" id="searchInputAcss" class="col-sm-3 form-group">
