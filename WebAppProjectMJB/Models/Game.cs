@@ -13,7 +13,7 @@ namespace WebAppProjectMJB.Models
         [Required]
         [StringLength(200, MinimumLength = 2, ErrorMessage = "game name need to be more then one letter")]
         [Display(Name = "Game Name")]
-        //הדבר הזה הוא כל מיני אישורים ותיקונים אפשרי לקוד שלנו
+        
         public string Name { get; set; }
         [Required]
         [Range(0, 600)]
@@ -32,8 +32,6 @@ namespace WebAppProjectMJB.Models
         public string Trailer { get; set; }
 
         [Display(Name = "Console")]
-        // public int CategoryId { get; set; }
-        //public Category Category { get; set; }
         public int GameConsoleId { get; set; }
 
         public GameConsole Console { get; set; }

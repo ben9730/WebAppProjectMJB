@@ -106,7 +106,7 @@ namespace WebAppProjectMJB.Controllers
                     {
                         ViewData["Error"] = "Cannot create this user, this username is already exists in the system";
                     }
-                    //ViewData["Error"] = "cannot crate this user, problem with username or/and Email";
+                    
                 }
             }
             return View(user);
@@ -183,7 +183,7 @@ namespace WebAppProjectMJB.Controllers
         }
 
 
-       // [Authorize(Roles = "Admin")]
+       
         // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
