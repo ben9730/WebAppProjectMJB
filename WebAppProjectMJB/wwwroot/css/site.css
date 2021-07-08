@@ -7,9 +7,14 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.first-div{
+    text-align:center;
+}
+
+
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
@@ -40,6 +45,7 @@ a {
 #Header {
  font-size:500px;
 }
+
 
 }
 .border-top {
@@ -87,4 +93,11 @@ body {
     position: relative;
 }
 
+.profile-img{
+    margin-left:130px;
+}
+
+.home-header{
+    font-size:5rem;
+}
 
