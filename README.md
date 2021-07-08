@@ -6,6 +6,8 @@ We have created a website for buying games online
 
 we use ASP.NET Core MVC with this project including languages like C# HTML CSS Javascript with jQuery
 
+Our project was a team effort developed by [Ben Gutman](https://www.linkedin.com/in/ben-gutman-929885200/) , [Jonathan Zelthzer](https://www.linkedin.com/in/jonathan-zelthzer-5b3a6817a/) and [Michael Bronshtein](https://www.linkedin.com/in/michael-bronshtein/)
+
 here some photo
 
 Home Page
